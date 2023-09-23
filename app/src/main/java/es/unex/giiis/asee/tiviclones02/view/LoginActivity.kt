@@ -16,14 +16,21 @@ class LoginActivity : AppCompatActivity() {
     private val responseLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK) {
-               //TODO get data from result and update IU
-                val name = ""
-                val password = ""
-                Toast.makeText(
-                    this@LoginActivity,
-                    "New user ($name/$password) created",
-                    Toast.LENGTH_SHORT
-                ).show()
+                with(result.data) {
+                    val name = this?.getStringExtra(JoinActivity.USERNAME).orEmpty()
+                    val password = this?.getStringExtra(JoinActivity.PASS).orEmpty()
+
+                    with(binding) {
+                        etPassword.setText(password)
+                        etUsername.setText(name)
+                    }
+
+                    Toast.makeText(
+                        this@LoginActivity,
+                        "New user ($name/$password) created",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         }
 
@@ -71,6 +78,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun navigateToJoin() {
         //TODO go to join activity
+        JoinActivity.start(this, responseLauncher)
     }
 
     private fun navigateToWebsite() {
