@@ -74,17 +74,14 @@ class LoginActivity : AppCompatActivity() {
 
     private fun navigateToHomeActivity(user: User, msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-        //TODO go to home activity
         HomeActivity.start(this, user)
     }
 
     private fun navigateToJoin() {
-        //TODO go to join activity
         JoinActivity.start(this, responseLauncher)
     }
 
     private fun navigateToWebsite() {
-        //TODO go to website "https://trakt.tv/"
         val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://trakt.tv/"))
         startActivity(webIntent)
     }

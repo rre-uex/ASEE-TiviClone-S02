@@ -23,7 +23,6 @@ class JoinActivity : AppCompatActivity() {
             context: Context,
             responseLauncher: ActivityResultLauncher<Intent>
         ) {
-            //TODO create intent and launch activity
             val intent = Intent(context, JoinActivity::class.java)
             responseLauncher.launch(intent)
         }
@@ -58,7 +57,6 @@ class JoinActivity : AppCompatActivity() {
     }
 
     private fun navigateBackWithResult(user: User) {
-        //TODO create intent and set result
         val intent = Intent().apply {
             putExtra(USERNAME,user.name)
             putExtra(PASS,user.password)
