@@ -1,5 +1,7 @@
 package es.unex.giiis.asee.tiviclones02.view
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -83,6 +85,8 @@ class LoginActivity : AppCompatActivity() {
 
     private fun navigateToWebsite() {
         //TODO go to website "https://trakt.tv/"
+        val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://trakt.tv/"))
+        startActivity(webIntent)
     }
 
     private fun notifyInvalidCredentials(msg: String) {
