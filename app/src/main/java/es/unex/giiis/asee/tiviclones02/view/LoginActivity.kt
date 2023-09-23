@@ -66,6 +66,7 @@ class LoginActivity : AppCompatActivity() {
     private fun navigateToHomeActivity(user: User, msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
         //TODO go to home activity
+        HomeActivity.start(this, user)
     }
 
     private fun navigateToJoin() {
